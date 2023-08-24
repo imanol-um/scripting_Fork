@@ -17,7 +17,7 @@ Include /etc/ssh/sshd_config.d/*.conf
 # If you want to change the port on a SELinux system, you have to tell
 # SELinux about this change.
 # semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
-#
+#Se hizo el cambio al puerto de acceso mediante SSH para evitar que un posible atacante, utilice el puerto más común
 Port 2132
 #AddressFamily any
 #ListenAddress 0.0.0.0
@@ -32,15 +32,18 @@ Port 2132
 
 # Logging
 #SyslogFacility AUTH
-#LogLevel VERBOSE
+#Se habilitó el registro de eventos de SSH para realizar un seguimiento de las actividades de inicio de sesión y detectar posibles problemas de seguridad
+LogLevel VERBOSE
 
 # Authentication:
 
 #LoginGraceTime 2m
 #PermitRootLogin prohibit-password
 #StrictModes yes
-#MaxAuthTries 3
-#MaxSessions 6
+#Se establecieron límites en el número de intentos de inicio de sesión fallidos antes de bloquear a un usuario durante un período de tiempo. Esto protege contra ataques de fuerza bruta.
+MaxAuthTries 3
+#Se estableció el número máximo de sesiones de acuerdo a la cantidad de usuarios que forman parte de la organización, dejando un par para duplicar sesiones o lo que se requiera.
+MaxSessions 7
 
 #PubkeyAuthentication yes
 
@@ -62,6 +65,7 @@ AuthorizedKeysFile	.ssh/authorized_keys
 # Explicitly disable PasswordAuthentication. By presetting it, we
 # avoid the cloud-init set_passwords module modifying sshd_config and
 # restarting sshd in the default instance launch configuration.
+
 PasswordAuthentication no
 PermitEmptyPasswords no
 
