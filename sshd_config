@@ -17,7 +17,7 @@ Include /etc/ssh/sshd_config.d/*.conf
 # If you want to change the port on a SELinux system, you have to tell
 # SELinux about this change.
 # semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
-#Se hizo el cambio al puerto de acceso mediante SSH para evitar que un posible atacante, utilice el puerto más común
+#Se hizo el cambio al puerto de acceso mediante SSH para evitar que un posible atacante se dirija al puerto por defecto
 Port 2132
 #AddressFamily any
 #ListenAddress 0.0.0.0
@@ -102,7 +102,8 @@ PermitEmptyPasswords no
 #AllowAgentForwarding yes
 #AllowTcpForwarding yes
 #GatewayPorts no
-#X11Forwarding no
+#Desactivando el reenvío de X11 (gráficos remotos)para reducir el riesgo de ataques.
+X11Forwarding no
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 #PermitTTY yes
@@ -111,8 +112,9 @@ PermitEmptyPasswords no
 #TCPKeepAlive yes
 #PermitUserEnvironment no
 #Compression delayed
-#ClientAliveInterval 0
-#ClientAliveCountMax 6
+#Se estableció un límite de tiempo de inactividad en las sesiones SSH  para cerrar automáticamente sesiones inactivas y reducir el riesgo de accesos no autorizado.
+#ClientAliveInterval 300
+#ClientAliveCountMax 2
 #UseDNS no
 #PidFile /var/run/sshd.pid
 #MaxStartups 10:30:100
