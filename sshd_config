@@ -45,7 +45,7 @@ MaxAuthTries 3
 #Se estableció el número máximo de sesiones de acuerdo a la cantidad de usuarios que forman parte de la organización, dejando un par para duplicar sesiones o lo que se requiera.
 MaxSessions 7
 
-#PubkeyAuthentication yes
+PubkeyAuthentication yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
