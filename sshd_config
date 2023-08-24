@@ -102,7 +102,7 @@ PermitEmptyPasswords no
 #AllowAgentForwarding yes
 #AllowTcpForwarding yes
 #GatewayPorts no
-#Desactivando el reenvío de X11 (gráficos remotos)para reducir el riesgo de ataques.
+#Desactivando el reenvío de gráficos remotos para reducir el riesgo de ataques.
 X11Forwarding no
 #X11DisplayOffset 10
 #X11UseLocalhost yes
@@ -113,8 +113,8 @@ X11Forwarding no
 #PermitUserEnvironment no
 #Compression delayed
 #Se estableció un límite de tiempo de inactividad en las sesiones SSH  para cerrar automáticamente sesiones inactivas y reducir el riesgo de accesos no autorizado.
-#ClientAliveInterval 300
-#ClientAliveCountMax 2
+ClientAliveInterval 300
+ClientAliveCountMax 2
 #UseDNS no
 #PidFile /var/run/sshd.pid
 #MaxStartups 10:30:100
