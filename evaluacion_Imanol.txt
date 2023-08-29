@@ -1,0 +1,15 @@
+El script lo veo muy completo sinceramente, lo unico que mejoraria y mejore fue el uso de prints o puntos para 
+dar a entender lo que sucede en el programa. En cierta parte a mi me dio duda o incertidumbre sobre si el 
+programa estaba siendo ejecutado o si estaba haciendo algo tan siquiera, entonces para la ayuda al usuario 
+creo que es muy necesario colocar estos comentarios guias, solo lo modifique con comentarios simples como 
+"Carpeta creada" y ese estilo.
+Otra mejora que implemente fue el hecho de que el script se queda parado o detenido cuando no puede descargar
+el archivo porque ya se encuentra en este, entonces solo realice una condicional If para que salte este paso
+si es que no es necesario descargar.
+
+Aparte, el hecho de que el repositorio ya venga con la carpeta y los libros ya descargados siento que es 
+pesado e innecesario para los usuarios pues tiene que descargar esto tambien y aparte el uso del script queda 
+de un lado pues ya esta hecho el trabajo.
+
+Yo le daria un 9 al script solo por esos fallos, en el repositorio tambien se deja en claro que se necesita 
+para ejecutar el script y a mi gusto una guia de como clonar el repositorio no queda mal.

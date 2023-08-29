@@ -12,6 +12,9 @@ if not os.path.exists("libros"):
 if not os.path.exists("temporal"):
     os.makedirs("temporal")
 
+#Modificacion Ima1
+print("Carpetas base creadas")
+
 # URL base
 base_url = "https://www.conaliteg.sep.gob.mx/"
 
@@ -38,8 +41,14 @@ for folder_name in valid_links:
     if not os.path.exists(subfolder_path):
         os.makedirs(subfolder_path)
 
+#Modificacion Ima2
+print("Carpetas de los libros creadas")
+
 # URL base de las imágenes
 image_base_url = "https://www.conaliteg.sep.gob.mx/2023/c/{}/{}.jpg"
+
+print("Comenzando descarga de libros, por favor espere")
+
 
 # Descargar y guardar las imágenes en la carpeta "temporal"
 for folder_name in valid_links:
@@ -48,10 +57,22 @@ for folder_name in valid_links:
         image_response = requests.get(image_download_url)
         if image_response.status_code == 200:
             image_path = os.path.join("temporal", "{}_{:03d}.jpg".format(folder_name, image_number))
+            #Modificacion Ima5
+            #if not os.path.exists(image_path):
             with open(image_path, "wb") as f:
-                f.write(image_response.content)
+                if not os.path.exists(image_response.content):
+                    f.write(image_response.content)
+                else:
+                    break
+
+    #Modificacion Ima3
+    print(f"Descarga del libro {folder_name} acabada")
 
 print("Descargas completadas")
+
+#Modificacion Ima4
+print("Moviendo los archivos temporales a sus correspondientes libros")
+
 # Mover archivos de la carpeta temporal a las subcarpetas correspondientes en "libros"
 def move_files_to_folders():
     temporal_folder = "temporal"
